@@ -6,7 +6,7 @@ fn main() {
     dbg!(&args);
     println!("");
 
-    let config = parse_config(&args);
+    let config = Config::new(&args);
     println!("-- Config:\nSearching: {}", config.query);
     println!("In file: {}\n--\n", config.file_path);
 
@@ -20,8 +20,10 @@ struct Config {
     file_path: String,
 }
 
-fn parse_config(args: &Vec<String>) -> Config {
-    let query = args[1].clone();
-    let file_path = args[2].clone();
-    Config { query, file_path }
+impl Config {
+    fn new(args: &Vec<String>) -> Config {
+        let query = args[1].clone();
+        let file_path = args[2].clone();
+        Config { query, file_path }
+    }
 }
