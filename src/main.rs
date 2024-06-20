@@ -11,6 +11,10 @@ fn main() {
         println!("Problem parsing arguments: {}", err);
         process::exit(1);
     });
+    run(config);
+}
+
+fn run(config: Config) {
     println!("-- Config:\nSearching: {}", config.query);
     println!("In file: {}\n--\n", config.file_path);
 
